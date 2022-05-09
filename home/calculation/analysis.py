@@ -12,11 +12,7 @@ def analyze(prob_1, prob_2):
     var1 = ab_test[ab_test['variant'] == 0].values[:,1]
     var2 = ab_test[ab_test['variant'] == 1].values[:,1]
 
-    ztest_var1 ,propability_value_var1 = stests.ztest(x1=var1, x2=var2)
-    ztest_var1 = float(ztest_var1)
-    propability_value_var1 = float(propability_value_var1)
-
-
+    ztest_var1, propability_value_var1 = stests.ztest(x1=var1, x2=var2)
     sample_size = var1.sum()
     alpha = 0.05
     power = 0.3
@@ -33,10 +29,9 @@ def analyze(prob_1, prob_2):
     power = 0.3
     power_analysis = TTestIndPower()
 
-    ztest_var2 ,propability_value_var2 = stests.ztest(var2)
+    ztest_var2, propability_value_var2 = stests.ztest(var2)
 
-    propability_value_var2 = float(propability_value_var2)
-    ztest_var2 = float(ztest_var2)
+
 
     effect_size2 = 'Maximum detectable effect size: {0:.2f}'.format(optimize.root_scalar(f, bracket=[0.01, 1.0]).root)
     sample_size1 = var1.sum()
