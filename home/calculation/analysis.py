@@ -9,10 +9,10 @@ from home.calculation.generator import *
 def analyze(prob_1, prob_2):
     ab_test = generate_file(prob_1, prob_2)
 
-    var1 = ab_test[ab_test['variant'] == 0]['clicked yes']
-    var2 = ab_test[ab_test['variant'] == 1]['clicked yes']
+    var1 = ab_test[ab_test['variant'] == 0].values[:,1]
+    var2 = ab_test[ab_test['variant'] == 1].values[:,1]
 
-    ztest_var1 ,propability_value_var1 = stests.ztest(var1)
+    ztest_var1 ,propability_value_var1 = stests.ztest(x1=var1, x2=var2)
     ztest_var1 = float(ztest_var1)
     propability_value_var1 = float(propability_value_var1)
 
@@ -42,4 +42,4 @@ def analyze(prob_1, prob_2):
     sample_size1 = var1.sum()
     sample_size2 = var2.sum()
 
-    return prob_1, ztest_var1, propability_value_var1, effect_size1, prob_2, ztest_var2, propability_value_var2, effect_size2, sample_size1, sample_size2
+    return prob_1, ztest_var1, propability_value_var1, effect_size1, prob_2, ztest_var2, propability_value_var2, effect_size2, sample_size1, sample_size2, ab_test

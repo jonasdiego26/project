@@ -62,6 +62,14 @@
             <br>
             
             {{ effect_size_2 }}
+            <br>
+            <br>
+            <form method='GET'>
+                <input type='hidden' name='format' value='csv'>
+                <input type='hidden' name='lab_query' value={{lab_query}}>
+                <input type='submit' value='Download .csv'>
+            </form>
+            <br>
             
         {% endblock content %}
     </div>
