@@ -33,7 +33,7 @@
     <div class="container mt-3 mb-3">
         {% block content %}
         {% csrf_token %}
-            The first experiment was conducted at after {{ sample_size1 }} persons were tested with a chance of {{ chance_1 }} % to click yes.
+            The first experiment was conducted after {{ sample_size1 }} persons were tested with a chance of {{ chance_1 }} % to click yes.
             <br> 
             The Z-value = {{ z_value_1 }}, p-value = {{ p_value_1 }}
             {%if p_value_1 < 0.05 %}
@@ -48,7 +48,7 @@
             <br>
             <br>
 
-            The second experiment was conducted at after {{ sample_size2 }} persons were tested with a chance of {{ chance_2 }} % to click yes.
+            The second experiment was conducted after {{ sample_size2 }} persons were tested with a chance of {{ chance_2 }} % to click yes.
             <br> 
             The Z-value = {{ z_value_2 }}, p-value = {{ p_value_2 }}
             {%if p_value_2 < 0.05 %}
